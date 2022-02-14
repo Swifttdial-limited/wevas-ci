@@ -1,0 +1,696 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Kittn API"
+        >
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-794e364f.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-d46e6633.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-f25a6e12.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#swifttdial-sms-api-docs" class="toc-h1 toc-link" data-title="swifttdial SMS API Docs">swifttdial SMS API Docs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#usage-overview" class="toc-h2 toc-link" data-title="Usage Overview">Usage Overview</a>
+                    </li>
+
+                  <li>
+                    <a href="#headers" class="toc-h2 toc-link" data-title="Headers">Headers</a>
+                    </li>
+
+                  <li>
+                    <a href="#responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                    </li>
+
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#send-bulk" class="toc-h1 toc-link" data-title="Send Bulk">Send Bulk</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#send-a-single-message-to-one-or-multiple-recipients-you-can-send-up-to-200-recipients-in-a-single-request-this-endpoint-can-send-both-on-demand-and-bulk-messages" class="toc-h2 toc-link" data-title="Send a single message to one or multiple recipients. You can send up to 200 recipients in a single request. This endpoint can send both on demand and bulk messages.">Send a single message to one or multiple recipients. You can send up to 200 recipients in a single request. This endpoint can send both on demand and bulk messages.</a>
+                    </li>
+  <ul class="toc-list-h3">
+      <li>
+        <a href="#requests" class="toc-h3 toc-link" data-title="Requests">Requests</a>
+      </li>
+      <li>
+        <a href="#responses-2" class="toc-h3 toc-link" data-title="Responses">Responses</a>
+      </li>
+  </ul>
+
+              </ul>
+          </li>
+          <li>
+            <a href="#message-status" class="toc-h1 toc-link" data-title="Message Status">Message Status</a>
+          </li>
+          <li>
+            <a href="#subscription-messages" class="toc-h1 toc-link" data-title="Subscription Messages">Subscription Messages</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#https-bulkdev-swifttdial-com-2778-api-outbox" class="toc-h2 toc-link" data-title="https://bulkdev.swifttdial.com:2778/api/outbox"><code>https://bulkdev.swifttdial.com:2778/api/outbox</code></a>
+                    </li>
+
+                  <li>
+                    <a href="#requests-2" class="toc-h2 toc-link" data-title="Requests">Requests</a>
+                    </li>
+
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='swifttdial-sms-api-docs'>swifttdial SMS API Docs</h1>
+<p>Customer Support:
+tech@swifttdial.com
+URL: https://swifttdial.com/contact-us/</p>
+<h2 id='usage-overview'>Usage Overview</h2>
+<p>Here are some information that should help you understand the basic usage of our Restful API.</p>
+
+<p>Including info about authenticating users, making requests, responses, potential errors, query parameters and more.</p>
+<h2 id='headers'>Headers</h2>
+<p>Certain API calls require you to send data in a particular format as part of the API call.</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>value sample</th>
+<th>when to apply</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content-Type</td>
+<td>application /json</td>
+<td>must be sent whn passing Data</td>
+</tr>
+<tr>
+<td>authorization</td>
+<td>x-api-key</td>
+<td>MUST be sent whenever the endpoint requires (Authenticated User).</td>
+</tr>
+</tbody></table>
+<h2 id='responses'>Responses</h2>
+<p>Unless otherwise specified, all of API endpoints will return the information that you request in the JSON data format.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>json
+
+</code></pre></div>
+<p>Standard Response Format</p>
+
+<p>Delivery Reports
+Below is a description of each delivery report</p>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DeliveredToTerminal</td>
+<td>Delivered to device</td>
+<td></td>
+</tr>
+<tr>
+<td>AbsentSubscriber</td>
+<td>Subscriber has not been able to connect to the network for the last 24 hrs. In some cases (airtel) customers have to lock their phone to 3G only to be able to receive messages. This is an issue specific to them</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Delivery Impossible</td>
+<td>Number has been ported to another telco or has temporarily been deactivated by SP. Or the number has been inactive for a long period of time. In some cases the telco has blocked delivery due to violation of policy. ie. Sending marketing message beyond 6PM and earlier than 7am</td>
+<td></td>
+</tr>
+<tr>
+<td>SenderName Blacklisted</td>
+<td>The customer has explicitly blocked messages from the sender id. or opted out of receiving promotional messages</td>
+<td></td>
+</tr>
+<tr>
+<td>Invalid Source Address</td>
+<td>The sender ID does not exist on the telco</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>|Send Bulk Sms|
+Send Bulk Promotional or/and Transaction messages|</p>
+<h1 id='authentication'>Authentication</h1>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AUTHORIZATION</td>
+<td>x-api-key</td>
+<td></td>
+</tr>
+<tr>
+<td>HEADERS</td>
+<td>Content-Type: application/json</td>
+<td></td>
+</tr>
+<tr>
+<td>data</td>
+<td>profile_code :123</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>https://bulkdev.swifttdial.com:2778</p>
+</blockquote>
+<h1 id='send-bulk'>Send Bulk</h1>
+<p>POST Send SMS
+<code>https://bulkdev.swifttdial.com:2778/api/outbox/create \</code></p>
+<h2 id='send-a-single-message-to-one-or-multiple-recipients-you-can-send-up-to-200-recipients-in-a-single-request-this-endpoint-can-send-both-on-demand-and-bulk-messages'>Send a single message to one or multiple recipients. You can send up to 200 recipients in a single request. This endpoint can send both on demand and bulk messages.</h2><h3 id='requests'>Requests</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AUTHORIZATIONS:</td>
+<td>X-api-key</td>
+</tr>
+<tr>
+<td>REQUEST BODY SCHEMA</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>REQUEST BODY:</td>
+<td></td>
+</tr>
+<tr>
+<td>profile_code</td>
+<td>linked to sms product configuration</td>
+</tr>
+<tr>
+<td>Messages</td>
+<td>Arry of objects(Messages)[ 1 .. 20] items</td>
+</tr>
+<tr>
+<td>dlr_callback_url</td>
+<td>dlr Callback Url</td>
+</tr>
+</tbody></table>
+<h3 id='responses-2'>Responses</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="se">\</span>
+  <span class="nt">--url</span> https://bulkdev.swifttdial.com:2778/api/outbox/create <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'X-API-Key: meowmeowmeow'</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s1">'{"profile_code": "12345",
+    "messages": [
+        {
+            "recipient": "254712xxxxxx",
+            "message": " HI this is a test",
+            "message_type":1,
+            "req_type": 1,
+            "external_id": "your unique external_id"
+        }
+    ],
+    "dlr_callback_url": "http://example.com"
+}
+</span></code></pre></div><h1 id='message-status'>Message Status</h1>
+<p><code>https://bulkdev.swifttdial.com:2778/api/outbox/delivery-status/message_ref/ \</code></p>
+
+<p>Check the delivery status of a single/Bulk messages</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AUTHORIZATIONS:</td>
+<td>X-api-key</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight plaintext"><code>curl --request GET \
+ --url https://bulkdev.swifttdial.com:2778/api/outbox/delivery-status/message_ref/ \
+ --header 'X-API-Key: your-api-key'
+</code></pre></div><h1 id='subscription-messages'>Subscription Messages</h1><h3 id='https-bulkdev-swifttdial-com-2778-api-outbox'><code>https://bulkdev.swifttdial.com:2778/api/outbox</code></h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>to</td>
+<td>An arraray of phone numbers</td>
+</tr>
+<tr>
+<td>message</td>
+<td>he message to be sent a single massage is 160 characters</td>
+</tr>
+<tr>
+<td>from:</td>
+<td>The short code that will be used to send the message</td>
+</tr>
+<tr>
+<td>profile_code</td>
+<td>linked to sms product configuration</td>
+</tr>
+<tr>
+<td>message_id</td>
+<td>A unique reference number that will be sent back to you on the provided delivery endpoint</td>
+</tr>
+<tr>
+<td>dlr_callback_url</td>
+<td>The Url that we will send you a delivery report once the message is terminated to the device</td>
+</tr>
+</tbody></table>
+<h3 id='requests-2'>Requests</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AUTHORIZATIONS:</td>
+<td>X-api-key</td>
+</tr>
+<tr>
+<td>REQUEST BODY SCHEMA</td>
+<td>application/json</td>
+</tr>
+</tbody></table>
+
+<p>header &#39;X-API-Key: your-x-api&#39; \
+ header &#39;Content-Type: application/json&#39; \</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">body</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"25472xxxxxxx"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your Message"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"messageId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-eunique-id"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23599"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23599_News_5/sms"</span><span class="w">
+    </span><span class="nl">"callback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/callback"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="se">\</span>
+  <span class="nt">--url</span> https://bulkdev.swifttdial.com:2778/api/outbox <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'X-API-Key: your-x-api'</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s1">'{
+    "to": ["25472xxxxxxx"],
+    "message": "Your Message",
+    "messageId": "a-eunique-id",
+    "from": "23599",
+    "service": "23599_News_5/sms",
+    "callback": "http://example.com/callback"
+
+}'</span>
+</code></pre></div><h1 id='errors'>Errors</h1>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The endpoint requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a this endpoint with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The Endpoint requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
